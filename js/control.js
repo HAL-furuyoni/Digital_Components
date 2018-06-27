@@ -101,9 +101,7 @@ function CountDw(flag){
   DispGauge(n_fujin,n_raijin);
 }
 function CountDouble(){
-  n_fujin = 2*n_fujin;
   n_raijin = 2*n_raijin;
-  if(n_fujin>19){n_fujin = 20;}
   if(n_raijin>19){n_raijin = 20;}
   DispGauge(n_fujin,n_raijin);
 }
