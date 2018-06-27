@@ -67,3 +67,11 @@ img.FR_raijin{
 img.Plan_raira{
   width:100%;
 }
+
+@media screen and (max-width: 768px) {
+	div.Umb_frame,
+	div.Plan_frame,
+	div.FR_frame {
+		width: 30vw;
+	}
+}
