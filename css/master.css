@@ -1,89 +1,69 @@
-/*--------------------------------------------------------------------------
-Common Resorce
----------------------------------------------------------------------------*/
-div.CR_frame{
-  float:left;
-  border:2px;
-  width:5.5%;
-  height: 5%;
-  border-style:dotted;
-}
-div.CR_cell{
-  clear:both;
-  border:2px;
+div.Umb_frame{
+  float: left;
+  width: 15%;
   height: 50%;
+  border-style: dotted;
 }
-div.CR_scrp{
-  float: left;
-  width: 5%;
+img.Umb_spin{
+  width:80%;
 }
-img.CR_icon{
-  text-align: center;
-  width: 80%;
-  float: left;
+img.Umb_yukihi{
+  width:80%;
 }
 /*--------------------------------------------------------------------------*/
-div.miniplayer{
+div.Plan_frame{
   float: left;
-  border:2px;
-  width: 160px;
-  height:100px;
+  width: 15%;
+  height: 50%;
+  border-style: dotted;
 }
-div.basicAct{
-  float:left;
-  margin:10px;
-  border:2px;
-  width:240px;
-  height:200px;
-  border-style:dotted;
+img.Plan_b1{
+  width:45%;
 }
-div.semiBA{
-  float:left;
-  margin:5px;
-  border:2px;
-  width:230px;
-  height:80px;
-  border-style:dotted;
+img.Plan_b2{
+  width:45%;
+  visibility: hidden;
 }
-div.Player{
-  clear:both;
-  margin:10px;
-  border:2px;
-  height:200px;
-  border-style:dotted;
-}
-div.script{
-  text-align: center;
+img.Plan_shinra{
+  width:100%;
 }
 /*--------------------------------------------------------------------------*/
-img.icon{
-  text-align: center;
-  width: 100px;
-  height: 100px;
-}
-img.card{
-  text-align: center;
-  width: 100px;
-  height: 72.3px;
-}
-img.card2{
-  text-align: center;
-  margin: 5px;
-  border: 2px;
-  width: 100px;
-  height: 140px;
-}
-/*--------------------------------------------------------------------------*/
-p.button{
+div.FR_frame{
   float: left;
+  width: 15%;
+  height: 50%;
+  border-style: dotted;
 }
-p.nametitle{
-  width: 200px;
-  height: 0px;
+img.FR_Findex{
+  float: left;
+  width: 15%;
 }
-p.Player_name{
-  margin: 5px;
-  border: 2px;
-  width: 100px;
-  height: 5px;
+img.FR_Rindex{
+  float: left;
+  width: 15%;
+}
+button.FR_fbutton{
+  width: 50%;
+  height: 50%
+}
+button.FR_rbutton{
+  float: right;
+  width: 50%;
+  height: 50%
+}
+button.FR_2button{
+  float: center;
+  width: 100%;
+  height: 20%
+}
+img.FR_fujin{
+  float: left;
+  width: 35%;
+}
+img.FR_raijin{
+  float: left;
+  width: 35%;
+}
+img.Plan_raira{
+  width:100%;
 }
