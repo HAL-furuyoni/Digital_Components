@@ -69,51 +69,46 @@ FR_Cgau[2] = new Image();
 FR_Cgau[2].src = "./images/raijin_0x.png";
 FR_Cgau[3] = new Image();
 FR_Cgau[3].src = "./images/raijin_1x.png";
+function DispGauge(nf,nr){
+    document.getElementById("fujin").src='./images/fujin_'+
+    (nf-nf%10)/10+'x.png';
+    document.getElementById('FR_Findex').src = './images/fujin_x'
+    +nf%10+'.png';
+    document.getElementById("raijin").src='./images/raijin_'+
+    (nr-nr%10)/10+'x.png';
+    document.getElementById('FR_Rindex').src = './images/raijin_x'
+    +nr%10+'.png';
+
+}
 function CountUp(flag){
   if(flag==0){
     if(n_fujin>19){n_fujin = 20;}
     else{++n_fujin;}
-    document.getElementById("fujin").src='./images/fujin_'+
-    (n_fujin-n_fujin%10)/10+'x.png';
-    document.getElementById('FR_Findex').src = './images/fujin_x'
-    +n_fujin%10+'.png';
   }
   else if(flag == 1){
     if(n_raijin>19){n_raijin = 20;}
     else{++n_raijin;}
-    document.getElementById("raijin").src='./images/raijin_'+
-    (n_raijin-n_raijin%10)/10+'x.png';
-    document.getElementById('FR_Rindex').src = './images/raijin_x'
-    +n_raijin%10+'.png';
   }
+  DispGauge(n_fujin,n_raijin);
 }
 function CountDw(flag){
   if(flag==0){
     if(n_fujin>0){--n_fujin;}
-    document.getElementById("fujin").src='./images/fujin_'+
-    (n_fujin-n_fujin%10)/10+'x.png';
-    document.getElementById('FR_Findex').src = './images/fujin_x'
-    +n_fujin%10+'.png';
   }
   else if(flag==1){
     if(n_raijin>0){--n_raijin;}
-    document.getElementById("raijin").src='./images/raijin_'+
-    (n_raijin-n_raijin%10)/10+'x.png';
-    document.getElementById('FR_Rindex').src = './images/raijin_x'
-    +n_raijin%10+'.png';
   }
+  DispGauge(n_fujin,n_raijin);
 }
 function CountDouble(){
-    n_fujin = 2*n_fujin;
-    n_raijin = 2*n_raijin;
-    if(n_fujin>19){n_fujin = 20;}
-    if(n_raijin>19){n_raijin = 20;}
-    document.getElementById("fujin").src='./images/fujin_'+
-    (n_fujin-n_fujin%10)/10+'x.png';
-    document.getElementById("raijin").src='./images/raijin_'+
-    (n_raijin-n_raijin%10)/10+'x.png';
-    document.getElementById('FR_Findex').src = './images/fujin_x'
-    +n_fujin%10+'.png';
-    document.getElementById('FR_Rindex').src = './images/raijin_x'
-    +n_raijin%10+'.png';
+  n_fujin = 2*n_fujin;
+  n_raijin = 2*n_raijin;
+  if(n_fujin>19){n_fujin = 20;}
+  if(n_raijin>19){n_raijin = 20;}
+  DispGauge(n_fujin,n_raijin);
+}
+function CountReset(){
+  n_fujin = 0;
+  n_raijin = 0;
+  DispGauge(n_fujin,n_raijin);
 }
