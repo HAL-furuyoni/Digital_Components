@@ -1,0 +1,89 @@
+/*--------------------------------------------------------------------------
+Common Resorce
+---------------------------------------------------------------------------*/
+div.CR_frame{
+  float:left;
+  border:2px;
+  width:5.5%;
+  height: 5%;
+  border-style:dotted;
+}
+div.CR_cell{
+  clear:both;
+  border:2px;
+  height: 50%;
+}
+div.CR_scrp{
+  float: left;
+  width: 5%;
+}
+img.CR_icon{
+  text-align: center;
+  width: 80%;
+  float: left;
+}
+/*--------------------------------------------------------------------------*/
+div.miniplayer{
+  float: left;
+  border:2px;
+  width: 160px;
+  height:100px;
+}
+div.basicAct{
+  float:left;
+  margin:10px;
+  border:2px;
+  width:240px;
+  height:200px;
+  border-style:dotted;
+}
+div.semiBA{
+  float:left;
+  margin:5px;
+  border:2px;
+  width:230px;
+  height:80px;
+  border-style:dotted;
+}
+div.Player{
+  clear:both;
+  margin:10px;
+  border:2px;
+  height:200px;
+  border-style:dotted;
+}
+div.script{
+  text-align: center;
+}
+/*--------------------------------------------------------------------------*/
+img.icon{
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}
+img.card{
+  text-align: center;
+  width: 100px;
+  height: 72.3px;
+}
+img.card2{
+  text-align: center;
+  margin: 5px;
+  border: 2px;
+  width: 100px;
+  height: 140px;
+}
+/*--------------------------------------------------------------------------*/
+p.button{
+  float: left;
+}
+p.nametitle{
+  width: 200px;
+  height: 0px;
+}
+p.Player_name{
+  margin: 5px;
+  border: 2px;
+  width: 100px;
+  height: 5px;
+}
