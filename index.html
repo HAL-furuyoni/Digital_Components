@@ -4,203 +4,46 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/master.css">
     <script type="text/javascript" src="./js/control.js"> </script>
-    <title>桜降る代に決闘を:決闘記</title>
+    <title>桜降る代に決闘を:デジタルコンポーネント</title>
   </head>
   <body>
     <header>
       <div>
         <img src="./images/header.png"
-        alt="桜降る代に決闘を:決闘記">
+        alt="桜降る代に決闘を:デジタルコンポーネント">
       </div>
     </header>
-    <!--temporal framework -->
-    <div class="CR_frame" >
-      <div class="CR_cell">
-        <img class="CR_icon" src="../images/area_distance.png"
-        alt="間合">
-        <div class="CR_scrp" id="C_dist" > </div>
-      </div>
-      <div class="CR_cell">
-        <img class="CR_icon" src="../images/area_shadow.png"
-        alt="dust">
-        <div class="CR_scrp" id="C_dust" > </div>
-      </div>
-  </div>
-  <!-- Basic Action frame-->
-  <div class="basicAct" >
-    <div class="semiBA" id="A_BA">
-      <p class="nametitle">PlayerA</p>
-      <p class="button">
-        <input type="button" value="前進" name="前進" onclick="go('A');">
-      </p>
-      <p class="button">
-        <input type="button" value="後退" name="後退" onclick="back('A');">
-      </p>
-      <p class="button">
-        <input type="button" value=" 纏 " name=" 纏 " onclick="matoi('A');">
-      </p>
-      <p class="button">
-        <input type="button" value=" 宿 " name="宿" onclick="yadosi('A');">
-      </p>
-      <p class="button">
-        <input type="button" value="離脱" name="離脱" onclick="ridatu();">
-      </p>
+    <!--Spin Spin -->
+    <div class="Umb_frame" >
+      <img id="Umb" onclick="Umb_spin()" class="Umb_spin"
+      src="./images/umbrella_a.png">
+      <img id="Umb_chibi" class="Umb_yukihi" src="./images/sd_yukihi_a.png">
     </div>
-    <div class="semiBA" id="B_BA">
-      <p class="nametitle">PlayerB</p>
-      <p class="button">
-        <input type="button" value="前進" name="前進" onclick="go('B');">
-      </p>
-      <p class="button">
-        <input type="button" value="後退" name="後退" onclick="back('B');">
-      </p>
-      <p class="button">
-        <input type="button" value=" 纏 " name=" 纏 " onclick="matoi('B');">
-      </p>
-      <p class="button">
-        <input type="button" value=" 宿 " name="宿" onclick="yadosi('B');">
-      </p>
-      <p class="button">
-        <input type="button" value="離脱" name="離脱" onclick="ridatu();">
-      </p>
+    <!--Hiso Hiso -->
+    <div class="Plan_frame" >
+      <img id="Plan1" onclick="ImageChange(1)" class="Plan_b1"
+      src="./images/plan_back.png">
+      <img id="Plan2" onclick="ImageChange(2)" class="Plan_b2"
+      src="./images/plan_back.png">
+      <img class="Plan_shinra" src="./images/sd_shinra.png">
     </div>
-  </div>
-  <!-- Controll Button-->
-  <p>
-    <input type="button" value="   reset   " name="reset" onclick="init();">
-  </p>
-    <input type="button" id="A_turn" value=" Player A " onclick="clickSwitch('A');">
-    <input type="button" id="B_turn" value=" Player B " onclick="clickSwitch('B');">
-    <script type="text/javascript" src="../js/switch.js"> </script>
-  <!-- =========================Player Zone================================ -->
-  <!-- Player A frame-->
-  <div class="Player" name="PlayerA">
-    <p class="Player_name"> Player A</p>
-    <!--Aura -->
-    <div class="miniplayer">
-      <img class="icon "src="../images/area_aura.png"
-      alt="aura">
-      <div class="script"  id="A_aura"> </div>
+    <!--Rai Rai Rai! -->
+    <div class="FR_frame" >
+      <img id="fujin" class="FR_fujin"
+      src="./images/fujin_0x.png">
+      <img class="FR_Findex" id="FR_Findex"
+      src="./images/fujin_x0.png">
+      <img id="raijin" class="FR_raijin"
+      src="./images/raijin_0x.png">
+      <img class="FR_Rindex" id="FR_Rindex"
+      src="./images/raijin_x0.png">
+      <button class="FR_fbutton"onclick="CountUp(0);">風神ゲージ+1</button>
+      <button class="FR_rbutton"onclick="CountUp(1);">雷神ゲージ+1</button>
+      <button class="FR_fbutton"onclick="CountDw(0);">風神ゲージ-1</button>
+      <button class="FR_rbutton"onclick="CountDw(1);">雷神ゲージ-1</button>
+      <button class="FR_2button"onclick="CountDouble();">風神・雷神ゲージ2倍</button>
+      <img class="Plan_raira" src="./images/sd_raira.png">
     </div>
-    <!--Life -->
-    <div class="miniplayer">
-    <img class="icon "src="../images/area_life.png"
-    alt="life">
-    <div class="script"  id="A_life"> </div>
-    </div>
-    <!--Flare -->
-    <div class="miniplayer">
-    <img class="icon "src="../images/area_flare.png"
-    alt="flare">
-    <div class="script"  id="A_flare"> </div>
-    </div>
-    <!--Vigor -->
-    <div class="miniplayer">
-    <img class="card "src="../images/vigor.png"
-    alt="A_vigor">
-    <div class="script"  id="A_vigor"> </div>
-    </div>
-    <!--hands -->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/cardback_normal.png"
-      alt="A_hand">
-      <div class="script"  id="A_hand"> </div>
-    </div>
-    <!--Umbrella -->
-    <div class="miniplayer">
-      <img class="card2"src="../images/umbrella_a.png"
-      alt="A_umbrella">
-      <div class="script"  id="A_umbrella"> </div>
-    </div>
-    <!--tactics -->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/tactics.png"
-      alt="tactics">
-      <div class="script"  id="A_tact"> </div>
-    </div>
-    <!--fuel -->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/machine.png"
-      alt="A_fuel">
-      <div class="script"  id="A_fuel"> </div>
-    </div>
-    <!--raijin-->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/raijin.png"
-      alt="A_raijin">
-      <div class="script"  id="A_raijin"> </div>
-    </div>
-    <!--fujin -->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/fujin.png"
-      alt="A_fujin">
-      <div class="script"  id="A_fujin"> </div>
-    </div>
-  </div>
-  <!-- Player B frame-->
-  <div class="Player" name="PlayerB">
-    <p class="Player_name"> Player B</p>
-    <!--Aura -->
-    <div class="miniplayer">
-      <img class="icon "src="../images/area_aura.png"
-      alt="aura">
-      <div class="script"  id="B_aura"> </div>
-    </div>
-    <!--Life -->
-    <div class="miniplayer">
-    <img class="icon "src="../images/area_life.png"
-    alt="life">
-    <div class="script"  id="B_life"> </div>
-    </div>
-    <!--Flare -->
-    <div class="miniplayer">
-    <img class="icon "src="../images/area_flare.png"
-    alt="flare">
-    <div class="script" id="B_flare"> </div>
-    </div>
-    <!--Vigor -->
-    <div class="miniplayer">
-    <img class="card "src="../images/vigor.png"
-    alt="B_vigor">
-    <div class="script"  id="B_vigor"> </div>
-    </div>
-    <!--hands -->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/cardback_normal.png"
-      alt="A_hand">
-      <div class="script"  id="B_hand"> </div>
-    </div>
-    <!--Umbrella -->
-    <div class="miniplayer">
-      <img class="card2"src="../images/umbrella_a.png"
-      alt="A_umbrella">
-      <div class="script"  id="B_umbrella"> </div>
-    </div>
-    <!--tactics -->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/tactics.png"
-      alt="tactics">
-      <div class="script"  id="B_tact"> </div>
-    </div>
-    <!--fuel -->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/machine.png"
-      alt="A_fuel">
-      <div class="script"  id="B_fuel"> </div>
-    </div>
-    <!--raijin-->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/raijin.png"
-      alt="A_raijin">
-      <div class="script"  id="B_raijin"> </div>
-    </div>
-    <!--fujin -->
-    <div class="miniplayer">
-      <img class="card2 "src="../images/fujin.png"
-      alt="A_fujin">
-      <div class="script"  id="B_fujin"> </div>
-    </div>
-  </div>
   </body>
   <footer style="clear:both;">
     <p>Credit</p>
@@ -209,10 +52,7 @@
         ふるよにコモンズ©BakaFire、Illustrator:TOKIAME
         (URL:http://bakafire.main.jp/furuyoni/rule.html)
       </li>
-      <li>ふるよに決闘記コード作成:HΛL(twitter:@HL41454078)</li>
+      <li>デジタルコンポーネント作成:HΛL(twitter:@HL41454078)</li>
     </ul>
   </footer>
-  <script type="text/javascript">
-    init();
-  </script>
 </html>

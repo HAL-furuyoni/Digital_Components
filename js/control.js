@@ -1,166 +1,119 @@
 //----------------------------------------------------------------------------
-//Declare variables
+//Umbrella
 //----------------------------------------------------------------------------
-var Sakura = []; //Sakura crystle
-var cards = [];  //hands & deck
-var vigor = [];  //vigor
-var recoil = [];
-var Component = []; // Components
-var thd_dist = 2; // Threshold of distance
-//----------------------------------------------------------------------------
-//functions
-//----------------------------------------------------------------------------
-function get_fields(_player,_resource,_num){
-  this.player = _player;
-  this.resource = _resource;
-  this.num = _num;
-}
-//----------------------------------------------------------------------------
-function disp(tar){
-  for (var i = 0; i < tar.length; i++) {
-    target = document.getElementById(tar[i].player
-      +'_'+tar[i].resource);
-      target.innerHTML = tar[i].num;
-    }
-  }
-//----------------------------------------------------------------------------
-function init() {
-  Sakura[0] = new get_fields('A','aura',3);
-  Sakura[1] = new get_fields('A','flare',0);
-  Sakura[2] = new get_fields('A','life',10);
-  Sakura[3] = new get_fields('B','aura',3);
-  Sakura[4] = new get_fields('B','flare',0);
-  Sakura[5] = new get_fields('B','life',10);
-  Sakura[6] = new get_fields('C','dist',10);
-  Sakura[7] = new get_fields('C','dust',0);
-  disp(Sakura);
-  Component[0] = new get_fields('A','umbrella',0);
-  Component[1] = new get_fields('A','tact',1);
-  Component[2] = new get_fields('A','fuel',5);
-  Component[3] = new get_fields('A','raijin',0);
-  Component[4] = new get_fields('A','fujin',0);
-  Component[5] = new get_fields('B','umbrella',0);
-  Component[6] = new get_fields('B','tact',1);
-  Component[7] = new get_fields('B','fuel',5);
-  Component[8] = new get_fields('B','raijin',0);
-  Component[9] = new get_fields('B','fujin',0);
-  //disp(Component);
-  card[0] = new get_fields('A','hands',3);
-  card[1] = new get_fields('A','deck',4);
-  card[2] = new get_fields('B','hands',3);
-  card[3] = new get_fields('B','deck',4);
-  disp(card);
-  vigor[0] = new get_field('A','vigor',0);
-  vigor[1] = new get_field('B','vigor',1);
-  disp(vigor);
-};
-//----------------------------------------------------------------------------
-//Basic Action
-//----------------------------------------------------------------------------
-function go(_player){
-  var dist = Sakura[6].num;
-  if(dist > thd_dist){
-    if(_player == 'A'){
-      if(Sakura[0].num == 5){alert('前進できません')}
-      else{
-        Sakura[6].num--;
-        Sakura[0].num++;
-      }
-    }
-    else{
-      if(Sakura[3].num == 5){alert('前進できません')}
-      else{
-        Sakura[6].num--;
-        Sakura[3].num++;
-      }
-    }
-  disp(Sakura);
+var opcl = 0;
+var Umb = new Array();
+Umb[0] = new Image();
+Umb[0].src = "./images/umbrella_b.png";
+Umb[1] = new Image();
+Umb[1].src = "./images/umbrella_a.png";
+var yukihi = new Array();
+yukihi[0] = new Image();
+yukihi[0].src = "./images/sd_yukihi_b.png";
+yukihi[1] = new Image();
+yukihi[1].src = "./images/sd_yukihi_a.png";
+function Umb_spin(){
+  if( opcl== 0){
+    document.getElementById("Umb").src = Umb[opcl].src;
+    document.getElementById("Umb_chibi").src = yukihi[opcl].src;
+    opcl++;
   }
   else{
-    alert('間合は2以下です。前進できません');
+    document.getElementById("Umb").src = Umb[opcl].src;
+    document.getElementById("Umb_chibi").src = yukihi[opcl].src;
+    opcl = 0;
   }
 }
-//------------------------------------------------------------------------------
-function back(_player){
-  var dist = Sakura[6].num;
-  if(dist < 10){
-    if(_player == 'A'){
-      if(Sakura[0].num == 0){alert('後退できません')}
-      else{
-        Sakura[6].num++;
-        Sakura[0].num--;
-      }
-    }
-    else{
-      if(Sakura[3].num == 0){alert('後退できません')}
-      else{
-        Sakura[6].num++;
-        Sakura[3].num--;
-      }
-    }
-  disp(Sakura);
+//----------------------------------------------------------------------------
+//Plan Control
+//----------------------------------------------------------------------------
+var plan = new Array();
+plan[0] = new Image();
+plan[0].src = "./images/plan_back.png";
+plan[1] = new Image();
+plan[1].src = "./images/plan_blue.png";
+plan[2] = new Image();
+plan[2].src = "./images/plan_red.png";
+var p_tactic = 1;
+var p_state = 0;
+function ImageChange(num){
+  if(p_state == 0){
+    document.getElementById("Plan1").src = plan[p_tactic].src;
+    p_state++;
+  }
+  else if(p_state==1){
+    document.getElementById("Plan1").src = plan[1].src;
+    document.getElementById("Plan2").src = plan[2].src;
+    document.getElementById("Plan2").style.visibility = "visible";
+    p_state++;
   }
   else{
-    alert('間合は10です。後退できません');
+    document.getElementById("Plan1").src = plan[0].src;
+    document.getElementById("Plan2").src = plan[0].src;
+    document.getElementById("Plan2").style.visibility = "hidden";
+    p_tactic = num;
+    p_state = 0;
   }
 }
-//------------------------------------------------------------------------------
-function matoi(_player){
-  var dust = Sakura[7].num;
-  if(dust > 0){
-    if(_player == 'A'){
-      if(Sakura[0].num == 5){alert('纏えません')}
-      else{
-        Sakura[7].num--;
-        Sakura[0].num++;
-      }
-    }
-    else{
-      if(Sakura[3].num == 5){alert('纏えません')}
-      else{
-        Sakura[7].num--;
-        Sakura[3].num++;
-      }
-    }
-  disp(Sakura);
+//----------------------------------------------------------------------------
+//Fujin&Raijin
+//----------------------------------------------------------------------------
+var n_fujin = 0;
+var n_raijin = 0;
+var FR_Cgau = new Array();
+FR_Cgau[0] = new Image();
+FR_Cgau[0].src = "./images/fujin_0x.png";
+FR_Cgau[1] = new Image();
+FR_Cgau[1].src = "./images/fujin_1x.png";
+FR_Cgau[2] = new Image();
+FR_Cgau[2].src = "./images/raijin_0x.png";
+FR_Cgau[3] = new Image();
+FR_Cgau[3].src = "./images/raijin_1x.png";
+function CountUp(flag){
+  if(flag==0){
+    if(n_fujin>19){n_fujin = 20;}
+    else{++n_fujin;}
+    document.getElementById("fujin").src='./images/fujin_'+
+    (n_fujin-n_fujin%10)/10+'x.png';
+    document.getElementById('FR_Findex').src = './images/fujin_x'
+    +n_fujin%10+'.png';
   }
-  else{
-    alert('ダストが枯れています!!!纏えません!');
+  else if(flag == 1){
+    if(n_raijin>19){n_raijin = 20;}
+    else{++n_raijin;}
+    document.getElementById("raijin").src='./images/raijin_'+
+    (n_raijin-n_raijin%10)/10+'x.png';
+    document.getElementById('FR_Rindex').src = './images/raijin_x'
+    +n_raijin%10+'.png';
   }
 }
-//------------------------------------------------------------------------------
-function yadosi(_player){
-  if(_player == 'A'){
-    if(Sakura[0].num == 0){alert('宿せません')}
-    else{
-      Sakura[1].num++;
-      Sakura[0].num--;
-    }
+function CountDw(flag){
+  if(flag==0){
+    if(n_fujin>0){--n_fujin;}
+    document.getElementById("fujin").src='./images/fujin_'+
+    (n_fujin-n_fujin%10)/10+'x.png';
+    document.getElementById('FR_Findex').src = './images/fujin_x'
+    +n_fujin%10+'.png';
   }
-  else{
-    if(Sakura[3].num == 0){alert('宿せません')}
-    else{
-      Sakura[4].num++;
-      Sakura[3].num--;
-    }
+  else if(flag==1){
+    if(n_raijin>0){--n_raijin;}
+    document.getElementById("raijin").src='./images/raijin_'+
+    (n_raijin-n_raijin%10)/10+'x.png';
+    document.getElementById('FR_Rindex').src = './images/raijin_x'
+    +n_raijin%10+'.png';
   }
-  disp(Sakura);
 }
-//------------------------------------------------------------------------------
-function ridatu(){
-  var dist = Sakura[6].num;
-  var dust = Sakura[7].num;
-  if(dist <= thd_dist){
-    if(dust > 0){
-      Sakura[7].num--;
-      Sakura[6].num++;
-    }
-    else{
-      alert('ダストが枯れています!!!離脱できません!');
-    }
-  disp(Sakura);
-  }
-  else{
-    alert('離脱できません!');
-  }
+function CountDouble(){
+    n_fujin = 2*n_fujin;
+    n_raijin = 2*n_raijin;
+    if(n_fujin>19){n_fujin = 20;}
+    if(n_raijin>19){n_raijin = 20;}
+    document.getElementById("fujin").src='./images/fujin_'+
+    (n_fujin-n_fujin%10)/10+'x.png';
+    document.getElementById("raijin").src='./images/raijin_'+
+    (n_raijin-n_raijin%10)/10+'x.png';
+    document.getElementById('FR_Findex').src = './images/fujin_x'
+    +n_fujin%10+'.png';
+    document.getElementById('FR_Rindex').src = './images/raijin_x'
+    +n_raijin%10+'.png';
 }
