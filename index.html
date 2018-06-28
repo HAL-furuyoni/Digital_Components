@@ -12,13 +12,13 @@
       <div>桜降る代に決闘を:デジタルコンポーネント</div>
     </header>
     <!--Spin Spin -->
-    <div class="Umb_frame" >
+    <div class="Umb_frame" id="Umb_frame" >
       <img id="Umb" onclick="Umb_spin()" class="Umb_spin"
       src="./images/umbrella_a.png">
       <img id="Umb_chibi" class="Umb_yukihi" src="./images/sd_yukihi_a.png">
     </div>
     <!--Hiso Hiso -->
-    <div class="Plan_frame" >
+    <div class="Plan_frame" id="Plan_frame" >
       <img id="Plan1" onclick="ImageChange(1)" class="Plan_b1"
       src="./images/plan_back.png">
       <img id="Plan2" onclick="ImageChange(2)" class="Plan_b2"
@@ -26,22 +26,33 @@
       <img class="Plan_shinra" src="./images/sd_shinra.png">
     </div>
     <!--Rai Rai Rai! -->
-    <div class="FR_frame" >
+    <div class="FR_frame" id="FR_frame">
       <img id="fujin" class="FR_fujin"
       src="./images/fujin_0x.png">
-      <img class="FR_Findex" id="FR_Findex"
+      <img class="FR_index" id="FR_Findex"
       src="./images/fujin_x0.png">
       <img id="raijin" class="FR_raijin"
       src="./images/raijin_0x.png">
-      <img class="FR_Rindex" id="FR_Rindex"
+      <img class="FR_index" id="FR_Rindex"
       src="./images/raijin_x0.png">
-      <button class="FR_fbutton"onclick="CountUp(0);">風神 +1</button>
-      <button class="FR_rbutton"onclick="CountUp(1);">雷神 +1</button>
-      <button class="FR_fbutton"onclick="CountDw(0);">風神 -1</button>
-      <button class="FR_rbutton"onclick="CountDw(1);">雷神 -1</button>
+      <button class="FR_button"onclick="CountUp(0);">風神 +1</button>
+      <button class="FR_button"onclick="CountUp(1);">雷神 +1</button>
+      <button class="FR_button"onclick="CountDw(0);">風神 -1</button>
+      <button class="FR_button"onclick="CountDw(1);">雷神 -1</button>
       <button class="FR_2button"onclick="CountDouble();">雷神2倍</button>
       <button class="FR_2button"onclick="CountReset();">リセット</button>
       <img class="Plan_raira" src="./images/sd_raira.png">
+    </div>
+    <!-- Check Box -->
+    <div class="CB_frame" >
+      <form name="CB" action="index.html" method="post">
+        <input type="checkbox" id="Umb_disp" onclick="DispFrame(this,'Umb_frame')" >
+        <label for="Umb_disp">傘</label>
+        <input type="checkbox" id="Plan_disp" onclick="DispFrame(this,'Plan_frame')">
+        <label for="Plan_disp">計略</label>
+        <input type="checkbox" id="FR_disp" onclick="DispFrame(this,'FR_frame')" >
+        <label for="FR_disp">風神・雷神ゲージ</label>
+      </form>
     </div>
   </body>
   <footer style="clear:both;">

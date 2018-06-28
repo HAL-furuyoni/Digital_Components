@@ -1,8 +1,12 @@
+/*--------------------------------------------------------------------------*/
+/*Umbrella*/
+/*--------------------------------------------------------------------------*/
 div.Umb_frame{
   float: left;
   width: 15%;
   height: 50%;
   border-style: dotted;
+  display: none;
 }
 img.Umb_spin{
   width:80%;
@@ -11,10 +15,13 @@ img.Umb_yukihi{
   width:80%;
 }
 /*--------------------------------------------------------------------------*/
+/*Plan*/
+/*--------------------------------------------------------------------------*/
 div.Plan_frame{
   float: left;
   width: 15%;
   height: 50%;
+  display: none;
   border-style: dotted;
 }
 img.Plan_b1{
@@ -28,26 +35,21 @@ img.Plan_shinra{
   width:100%;
 }
 /*--------------------------------------------------------------------------*/
+/*Fujin&Raijin Gauge*/
+/*--------------------------------------------------------------------------*/
 div.FR_frame{
   float: left;
   width: 15%;
   height: 50%;
+  display: none;
   border-style: dotted;
 }
-img.FR_Findex{
+img.FR_index{
   float: left;
   width: 15%;
 }
-img.FR_Rindex{
+button.FR_button{
   float: left;
-  width: 15%;
-}
-button.FR_fbutton{
-  width: 50%;
-  height: 50%
-}
-button.FR_rbutton{
-  float: right;
   width: 50%;
   height: 50%
 }
@@ -56,10 +58,7 @@ button.FR_2button{
   width: 100%;
   height: 20%
 }
-img.FR_fujin{
-  float: left;
-  width: 35%;
-}
+img.FR_fujin,
 img.FR_raijin{
   float: left;
   width: 35%;
@@ -67,11 +66,22 @@ img.FR_raijin{
 img.Plan_raira{
   width:100%;
 }
-
+/*--------------------------------------------------------------------------*/
+/*Smart Phone*/
+/*--------------------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
 	div.Umb_frame,
 	div.Plan_frame,
-	div.FR_frame {
+	div.FR_frame,
+  div.CB_frame {
 		width: 30vw;
 	}
+}
+/*--------------------------------------------------------------------------*/
+/*CheckBox*/
+/*--------------------------------------------------------------------------*/
+div.CB_frame{
+  clear:both;
+  width: 15%;
+  border-style: dotted;
 }

@@ -1,4 +1,21 @@
 //----------------------------------------------------------------------------
+//Common Control
+//----------------------------------------------------------------------------
+function DispFrame(obj,tar){
+  if (obj.checked){
+    document.getElementById(tar).style.display="block";
+  }
+  else{
+    document.getElementById(tar).style.display="none";
+  }
+}
+window.onload=function init_check(){
+  var ElementsCount = document.CB.elements.length; // チェックボックスの数
+   for( i=0 ; i<ElementsCount ; i++ ) {
+      document.CB.elements[i].checked = false; // ON・OFFを切り替え
+   }
+}
+//----------------------------------------------------------------------------
 //Umbrella
 //----------------------------------------------------------------------------
 var opcl = 0;
