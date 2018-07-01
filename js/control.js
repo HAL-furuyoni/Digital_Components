@@ -1,6 +1,12 @@
 //----------------------------------------------------------------------------
 //Common Control
 //----------------------------------------------------------------------------
+window.onload=function init_check(){
+  var ElementsCount = document.CB.elements.length; // チェックボックスの数
+   for( i=0 ; i<ElementsCount ; i++ ) {
+      document.CB.elements[i].checked = true; // ON・OFFを切り替え
+   }
+}
 function DispFrame(obj,tar){
   if (obj.checked){
     document.getElementById(tar).style.display="block";
@@ -8,12 +14,6 @@ function DispFrame(obj,tar){
   else{
     document.getElementById(tar).style.display="none";
   }
-}
-window.onload=function init_check(){
-  var ElementsCount = document.CB.elements.length; // チェックボックスの数
-   for( i=0 ; i<ElementsCount ; i++ ) {
-      document.CB.elements[i].checked = false; // ON・OFFを切り替え
-   }
 }
 //----------------------------------------------------------------------------
 //Umbrella
@@ -26,9 +26,9 @@ Umb[1] = new Image();
 Umb[1].src = "./images/umbrella_a.png";
 var yukihi = new Array();
 yukihi[0] = new Image();
-yukihi[0].src = "./images/sd_yukihi_b.png";
+yukihi[0].src = "./images/yukihi_b.png";
 yukihi[1] = new Image();
-yukihi[1].src = "./images/sd_yukihi_a.png";
+yukihi[1].src = "./images/yukihi_a.png";
 function Umb_spin(){
   if( opcl== 0){
     document.getElementById("Umb").src = Umb[opcl].src;
